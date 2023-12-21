@@ -11,12 +11,12 @@ const Turns = ({ gameInfo }) => {
     >
       <h2>Logs</h2>
       {gameInfo.length > 0 ? (
-        <ol>
+        <ol id="log">
           {gameInfo.map((turn) => (
-            <li key={turn.square}>
+            <li key={`${turn.square.row}, ${turn.square.col}`}>
               <p>
-                {turn.player.playerName} played {turn.player.symbol} on row{" "}
-                {turn.square.row} and column {turn.square.col}
+                {turn.player} played on row {turn.square.row} and column{" "}
+                {turn.square.col}
               </p>
             </li>
           ))}

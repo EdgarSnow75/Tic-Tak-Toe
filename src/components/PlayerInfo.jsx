@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-const PlayerInfo = ({ playerName, setPlayerName, playerSymbol, isActive }) => {
+const PlayerInfo = ({ player, symbol, isActive }) => {
   const [isEditing, setIsEditing] = useState(false);
+  const [playerName, setPlayerName] = useState(player);
 
   function handleChange(event) {
     setPlayerName(event.target.value);
@@ -21,7 +22,7 @@ const PlayerInfo = ({ playerName, setPlayerName, playerSymbol, isActive }) => {
         ) : (
           <span className="player-name">{playerName}</span>
         )}
-        <span className="player-symbol">{playerSymbol}</span>
+        <span className="player-symbol">{symbol}</span>
       </span>
       <button onClick={() => setIsEditing((editing) => !editing)}>
         {isEditing ? "Save" : "Update"}
